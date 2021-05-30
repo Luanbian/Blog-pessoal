@@ -5,7 +5,11 @@ const Article = require('./Article');
 const slugify = require('slugify');
 
 router.get("/admin/articles", (req,res) => {
-    res.render('admin/articles/index');
+    Article.findAll({
+        include:[{model: Category}]
+    }).then(articles => {
+        res.render('admin/articles/index', {articles: articles});
+    })
 })
 
 router.get("/admin/articles/new", (req, res) => {
@@ -20,12 +24,31 @@ router.post("/articles/save", (req,res) => {
     var category = req.body.category;
     Article.create({
         title: title,
-        slugify: slugify(title),
+        slug: slugify(title),
         body: body,
         categoryId: category
     }).then(() => {
         res.redirect('/admin/articles')
     })
+})
+
+router.post('/articles/delete', (req, res) => {
+    var id = req.body.id;
+    if(id != undefined){ //se o id for vazio
+        if(!isNaN(id)){ //se o id for um numero
+            Article.destroy({
+                where: {
+                    id: id
+                }
+            }).then(() => {
+                res.redirect('/admin/articles');
+            })
+        }else{ //se nao for um numero
+            res.redirect('/admin/articles');
+        }
+    } else{ //se o id nao for vazio
+        res.redirect('/admin/articles');
+    }
 })
 
 module.exports = router;
