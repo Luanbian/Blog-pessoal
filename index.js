@@ -9,10 +9,12 @@ const connection = require('./database/database');
 //importando as rotas 
 const categoriesController = require("./categories/categoriesController");
 const articlesController = require('./articles/articlesController');
+const usersController = require('./user/usersController');
 
 //importando as tabelas
 const Article = require('./articles/Article');
 const Category = require('./categories/Category');
+const USer = require('./user/User');
 
 //configurando a view engine
 app.set("view engine", 'ejs');
@@ -34,7 +36,7 @@ connection.authenticate().then(() => {
 //rotas
 app.use("/", categoriesController);
 app.use("/", articlesController);
-
+app.use("/", usersController);
 
 app.get("/", (req, res) => {
     Article.findAll({
