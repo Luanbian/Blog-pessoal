@@ -14,15 +14,25 @@ router.get("/admin/users/create", (req,res) => {
 router.post("/users/create", (req,res) => {
     var email = req.body.email;
     var password = req.body.password;
-    var salt = bcrypt.genSaltSync(10);
-    var hash = bcrypt.hashSync(password, salt);
-    User.create({
-        email: email,
-        password: hash
-    }).then(() => {
-        res.redirect("/");
-    }).catch((err) => {
-        res.redirect("/");
+    User.findOne({ //evitando e-mails duplicados
+        where:{
+            email: email
+        }
+    }).then(user => {
+        if(user == undefined){ //se nao existir
+            var salt = bcrypt.genSaltSync(10);
+            var hash = bcrypt.hashSync(password, salt);
+            User.create({
+                email: email,
+                password: hash
+            }).then(() => {
+                res.redirect("/");
+            }).catch((err) => {
+                res.redirect("/");
+            });
+        } else{ //se ja existir o email
+            res.redirect("/admin/users/create");
+        }
     });
 });
 
