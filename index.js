@@ -2,6 +2,7 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
+const session = require("express-session");
 
 //importando o banco de dados
 const connection = require('./database/database');
@@ -18,6 +19,12 @@ const USer = require('./user/User');
 
 //configurando a view engine
 app.set("view engine", 'ejs');
+
+// configurando as sessões
+app.use(session({
+    secret: "kbinfirg7654aviaobvaei4567h", 
+    cookie: {maxAge: 3600000}
+}))
 
 //arquivos estaticos
 app.use(express.static("public"));
@@ -37,6 +44,19 @@ connection.authenticate().then(() => {
 app.use("/", categoriesController);
 app.use("/", articlesController);
 app.use("/", usersController);
+
+//exemplo de session, ela pode ser excluida, mas vou deixar como exemplo
+//qualquer informação é guardada globalmente
+app.get("/session", (req,res) => {
+    req.session.treinamento = "formação node.js"
+    res.send("sessão gerada!");
+});
+//aqui eu acesso uma dessas informações
+app.get("/leitura", (req,res) => {
+    res.json({
+        treinamento: req.session.treinamento
+    })
+});
 
 app.get("/", (req, res) => {
     Article.findAll({
