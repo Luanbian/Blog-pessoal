@@ -8,4 +8,9 @@ O editor de texto escolhido foi o famoso TinyMCE
 
 ----
 Um projeto que considero importante para aprender mais sobre back-end e manipulação de banco de dados 
-## Graças a este projeto eu melhorei minhas 
+## Graças a este projeto eu melhorei minhas habilidades em:
+
+- [x] Node.JS 
+- [x] Bootstrap
+- [x] manipulação de banco de dados
+- [x] MySQL
