@@ -1,30 +1,39 @@
 <style>
   #container{
-    background-color: rgb(73, 56, 230);
+    background-color: #A4AFCC;
   } 
+  .logo{
+    width: 300px;
+    box-shadow: none;
+    margin-left: 15px;
+    margin-top: -5px;
+    margin-right: 60px;
+  }
   li a{
+    font-size: 14px;
     text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #141414;
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 10px;
-    margin-left: 20px;
-    margin-top: 15px;
-    box-shadow: 6px 8px 7px rgb(59, 58, 58);
+    color: #fff;
+    background-color: #0C2029;
+    padding: 12px;
+    border-radius: 12px;
+    margin-left: 30px;
+    margin-top: 25px;
+    box-shadow: 8px 8px 8px rgb(59, 58, 58);
   }
   li a:hover{
-    color: #141414;
+    color: #fff;
+    background-color: #BE8836;
     box-shadow: none;
   }
 </style>
 <nav  class="navbar" id="container">
   <ul class="nav nav-pills">
     <li class="nav-item">
-      <a class="nav-link active" href="/">
-        <img src="../../img/logo.png" style="width: 45px;">
+      <a class="nav-link logo" href="/">
+        <img src="../../img/logonaz.png" alt="logo" class="logo"/>
       </a>
     </li>
     <% categories.forEach(category => { %>
