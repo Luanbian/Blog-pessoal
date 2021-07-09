@@ -1,4 +1,26 @@
-<nav  class="navbar navbar-dark bg-primary">
+<style>
+  #container{
+    background-color: rgb(73, 56, 230);
+  } 
+  li a{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #141414;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-top: 15px;
+    box-shadow: 6px 8px 7px rgb(59, 58, 58);
+  }
+  li a:hover{
+    color: #141414;
+    box-shadow: none;
+  }
+</style>
+<nav  class="navbar" id="container">
   <ul class="nav nav-pills">
     <li class="nav-item">
       <a class="nav-link active" href="/">
@@ -6,8 +28,10 @@
       </a>
     </li>
     <% categories.forEach(category => { %>
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="/category/<%= category.slug %>"><%= category.title %></a>
+      <li>
+        <a href="/category/<%= category.slug %>">
+          <%= category.title %>
+        </a>
       </li>
     <% }) %>
   </ul>
