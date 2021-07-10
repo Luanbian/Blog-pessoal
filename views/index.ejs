@@ -1,20 +1,46 @@
 <%- include('partials/header.ejs'); %>
 <%- include('partials/homenavbar.ejs'); %>
 <style>
+    #artigos{
+        margin-top: 90px;
+    }
     .jumbotron{
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
+    .button{
+        text-decoration: none;
+        float: right;
+        color: #fff;
+        background-color: #173542;
+        padding: 8px;
+        border-radius: 15px;
+        font-size: 15px;
+        box-shadow: 8px 8px 8px rgb(114, 101, 101);
+    }
+    .button:hover{
+        color: #fff;
+        box-shadow: none;
+        background-color: #74ABC2;
+    }
+    .prox{
+        color: #487A8F;
+        float: right;
+        margin-bottom: 15px;
+        margin-right: 20px;
+    }
+    .prox:hover{
+        color: #141414;
+    }
 </style>
 <body>
-    <div class="container">
+    <div class="container" id="artigos">
         <div class="jumbotron">
-            <h1 class="display-4">Bem-vindo</h1>
-            <p class="lead">Você está em um blog de programação</p>
-            <hr>
-            <p class="lead"> <strong>Beba água</strong></p>
+           <!-- 
+               Fazer a animação de um teclado e um mouse se distanciando e aparecendo a mensagem de bem vindo
+            -->
         </div>
         <hr>
         <% articles.forEach(articles => { %>
@@ -24,18 +50,16 @@
                 </div>
                 <br>
                 <div class="card-body">
-                    <a href="/<%= articles.slug %>" class="btn btn-success">Ler artigo</a>
+                    <a href="/<%= articles.slug %>" class="button">Saiba mais</a>
                 </div>
             </div>
             <br>
         <% }) %>
         <div class="row">
             <div class="col col-12">
-                <a style="float: right;" href="/articles/page/2"> Next >>> </a>
+                <a class="prox" href="/articles/page/2"> Próximo > </a>
             </div>
-            <hr>
         </div>
-        <hr>
     </div>
 </body>
 <%- include('partials/footer.ejs'); %>

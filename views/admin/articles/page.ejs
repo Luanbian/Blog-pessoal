@@ -1,7 +1,39 @@
 <%- include('../../partials/header.ejs'); %>
 <%- include('../../partials/homenavbar.ejs'); %>
+<style>
+    #artigos{
+        margin-top: 90px;
+    }
+    .button{
+        text-decoration: none;
+        float: right;
+        color: #fff;
+        background-color: #173542;
+        padding: 8px;
+        border-radius: 15px;
+        font-size: 15px;
+        box-shadow: 8px 8px 8px rgb(114, 101, 101);
+    }
+    .button:hover{
+        color: #fff;
+        box-shadow: none;
+        background-color: #74ABC2;
+    }
+    .prox, .volt{
+        color: #487A8F;
+        float: right;
+        margin-bottom: 15px;
+        margin-right: 20px;
+    }
+    .prox:hover, .volt:hover{
+        color: #141414;
+    }
+    .volt{
+        float: left;
+    }
+</style>
 <body>
-    <div class="container">
+    <div class="container" id="artigos">
         <hr>
         <% result.articles.rows.forEach(articles => { %>
             <div class="card">
@@ -10,7 +42,7 @@
                 </div>
                 <br>
                 <div class="card-body">
-                    <a href="/<%= articles.slug %>" class="btn btn-success">Ler artigo</a>
+                    <a href="/<%= articles.slug %>" class="button">Saiba mais</a>
                 </div>
             </div>
             <br>
@@ -19,13 +51,13 @@
         <div class="row">
             <div class="col col-12">
                 <% if(result.page > 2) { %>
-                    <a style="float: left;" href="/articles/page/<%= result.page - 1 %>"> <<< Prev </a>
+                    <a class="volt"href="/articles/page/<%= result.page - 1 %>">< Voltar</a>
                 <% } else if(result.page == 2) { %>
-                    <a style="float: right;" href="/"> Home </a>
-                    <a style="float: left;" href="/articles/page/<%= result.page - 1 %>"> <<< Prev </a>
+                    <a class="prox" href="/"> Home </a>
+                    <a class="volt" href="/articles/page/<%= result.page - 1 %>">< Voltar</a>
                 <% } %>   
                 <% if(result.next) { %>
-                    <a style="float: right;" href="/articles/page/<%= result.page + 1 %>"> Next >>> </a>
+                    <a class="prox" href="/articles/page/<%= result.page + 1 %>">Próximo ></a>
                 <% } %>
             </div>
             <hr>
