@@ -4,11 +4,33 @@
     #artigos{
         margin-top: 90px;
     }
-    .jumbotron{
+    .jumbotronT,.jumbotron1, .jumbotron2{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         justify-content: center;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .imgpt2{
+        width: 200px;
+        margin-top: 2.2px;
+        animation-name: esquerda;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+    }
+    .imgpt1{
+        width: 200px;
+        animation-name: direita;
+        animation-duration:2s;
+        animation-fill-mode: forwards;
+    }
+    .imgbv{
+        margin-top: -100px;
+        width: 0px;
+        animation-name: centro;
+        animation-duration: 3s;
+        animation-fill-mode: forwards;
     }
     .button{
         text-decoration: none;
@@ -34,13 +56,45 @@
     .prox:hover{
         color: #141414;
     }
+    @keyframes direita {
+        from {
+            margin-left: 0%;
+        }
+        to {
+            margin-right: 70%;
+            transform: rotate(-20deg);
+        }
+    }
+    @keyframes esquerda {
+        from {
+            margin-left: 0%;
+        }
+        to {
+            margin-left: 70%;
+            transform: rotate(20deg);
+        }
+    }
+    @keyframes centro {
+        from {
+           width: 0px;
+        }
+        to {
+            width: 350px;
+        }
+    }
 </style>
 <body>
     <div class="container" id="artigos">
-        <div class="jumbotron">
-           <!-- 
-               Fazer a animação de um teclado e um mouse se distanciando e aparecendo a mensagem de bem vindo
-            -->
+        <div class="jumbotronT">
+            <div class="jumbotron1">
+                <img src="../../img/TM-pt1.jfif" alt="parte1" class="imgpt1"/>
+            </div>
+            <div class="jumbotron3">
+                <img src="../../img/TM-completo.jpg" alt="tm-completo" class="imgbv" />
+            </div>
+            <div class="jumbotron2">
+                <img src="../../img/TM-pt2.jfif" alt="parte2" class="imgpt2" />
+            </div>
         </div>
         <hr>
         <% articles.forEach(articles => { %>
