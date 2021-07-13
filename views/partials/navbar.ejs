@@ -1,18 +1,63 @@
-<nav  class="navbar navbar-dark bg-primary">
-  <ul class="nav nav-pills">
-    <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="/">Home</a>
+<style>
+  .navbar{
+    background-color: #676E80;
+  }
+  .nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  img{
+    width: 250px;
+  }
+  li a{
+    font-size: 18px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 12px;
+    border-radius: 12px;
+    margin-left: 30px;
+    margin-top: 15px;
+  }
+  li a:hover{
+    color: #fff;
+    background-color: #BE8836;
+    box-shadow: none;
+  }
+  .logout{
+    font-size: 16px;
+    margin-right: 12px;
+    text-decoration: none;
+    padding-bottom: 0px;
+    padding-top: 0px;
+  }
+  .logout:hover{
+    text-decoration: underline;
+    background-color: #676E80;
+  }
+</style>
+<nav class="navbar">
+  <ul class="nav">
+    <a class="nav-link logo"href="/">
+      <img src="../../img/logonaz.png"/>
+    </a>
+    <li>
+      <a href="/admin/categories">Categorias</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link active" href="/admin/categories">Categorias</a>
+    <li>
+      <a href="/admin/articles">Artigos</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link active" href="/admin/articles">Artigos</a>
+    <li>
+      <a href="/admin/users">Usuários</a>
     </li>
   </ul>
-  <ul class="nav nav-pills">
-    <li class="nav-item">
-      <a class="nav-link active" href="/logout">Logout</a>
+  <ul class="nav">
+    <li>
+      <a class="logout" href="/logout">Sair</a>
     </li>
   </ul>
 </nav>
