@@ -23,7 +23,7 @@ app.set("view engine", 'ejs');
 // configurando as sessões
 app.use(session({
     secret: "kbinfirg7654aviaobvaei4567h", 
-    cookie: {maxAge: 3600000}
+    cookie: {maxAge: 360000000}
 }))
 
 //arquivos estaticos
