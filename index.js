@@ -58,10 +58,10 @@ app.get("/leitura", (req,res) => {
     })
 });
 
-app.get("/", (req, res) => {
+app.get("/", (req, res) => { //paginação
     Article.findAll({
         order:[['id', 'DESC']],
-        limit: 4
+        limit: 10 //numero de artigos por página
     }).then(articles => {
         Category.findAll().then(categories => {
             res.render("index", {articles: articles, categories: categories})
