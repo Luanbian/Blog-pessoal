@@ -23,12 +23,6 @@ const USer = require('./user/User');
 //configurando a view engine
 app.set("view engine", 'ejs');
 
-// configurando as sessões
-app.use(session({
-    secret: "kbinfirg7654aviaobvaei4567h", 
-    cookie: {maxAge: 360000000}
-}))
-
 //arquivos estaticos
 app.use(express.static("public"));
 
