@@ -13,7 +13,9 @@
                 <input type="hidden" name="id" value="<%= article.id %>">
                 <textarea class="form-control" name="body" id="article"></textarea>
                 <br>
-                <label>Categoria</label>
+                <label>
+                    Categoria
+                </label>
                 <select name="category" class="form-control">
                     <% categories.forEach(category => { %>
                         <% if(category.id == article.categoryId){ %>
@@ -23,7 +25,9 @@
                         <% } %>
                     <% }) %>
                 </select>
-                <button class="btn btn-success">Atualizar artigo</button>
+                <button class="btn btn-success">
+                    Atualizar artigo
+                </button>
             </form>
         </div>
     </div>
