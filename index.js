@@ -3,7 +3,6 @@ const dotenv = require("dotenv");
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const session = require("express-session");
 
 dotenv.config();
 
@@ -18,7 +17,7 @@ const usersController = require('./user/usersController');
 //importando as tabelas
 const Article = require('./articles/Article');
 const Category = require('./categories/Category');
-const USer = require('./user/User');
+const USer = require('./users/User');
 
 //configurando a view engine
 app.set("view engine", 'ejs');
@@ -42,12 +41,10 @@ app.use("/", categoriesController);
 app.use("/", articlesController);
 app.use("/", usersController);
 
-//exemplo de session, ela pode ser excluida, mas vou deixar como exemplo
-//qualquer informação é guardada globalmente
-app.get("/session", (req,res) => {
-    req.session.treinamento = "formação node.js"
-    res.send("sessão gerada!");
-});
+app.use(session({
+    secret: "qualquercoisa", cookie: { maxAge: 30000000 }
+}))
+
 //aqui eu acesso uma dessas informações
 app.get("/leitura", (req,res) => {
     res.json({
@@ -105,6 +102,8 @@ app.get("/category/:slug", (req,res) => {
     })
 });
 
+//este abaixo é o
+//servidor
 app.listen(process.env.PORT || 5500, () => {
-    console.log("Express server listening on port mode", this.address().port, app.settings.env);
+    console.log("O servidor está rodando");
 })
