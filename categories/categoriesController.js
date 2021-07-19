@@ -4,7 +4,7 @@ const Category = require('./Category');
 const slugify = require('slugify');
 const adminAuth = require("../middleware/adminAuth");
 
-router.get('/admin/categories/new', adminAuth ,(req,res) => {
+router.get('/admin/categories/new',(req,res) => {
     res.render('admin/categories/new');
 });
 

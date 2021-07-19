@@ -1,8 +1,11 @@
 // Impostando as bibliotecas instaladas
+const dotenv = require("dotenv");
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const session = require("express-session");
+
+dotenv.config();
 
 //importando o banco de dados
 const connection = require('./database/database');
@@ -109,6 +112,6 @@ app.get("/category/:slug", (req,res) => {
 });
 
 //servidor
-app.listen(5500, () => {
+app.listen(process.env.PORT || 5500, () => {
     console.log("O servidor está rodando");
 })
