@@ -17,7 +17,7 @@ const usersController = require('./user/usersController');
 //importando as tabelas
 const Article = require('./articles/Article');
 const Category = require('./categories/Category');
-const USer = require('./users/User');
+const USer = require('./user/User');
 
 //configurando a view engine
 app.set("view engine", 'ejs');
