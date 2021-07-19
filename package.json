@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Um blog pessoal, para treinar backend",
   "main": "index.js",
+  "engines": {
+    "node": "14.17.3"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
@@ -23,7 +26,7 @@
     "jquery": "^3.6.0",
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.12",
-    "sequelize": "^6.6.2",
-    "slugify": "^1.5.3"
+    "sequelize": "^6.6.5",
+    "slugify": "^1.6.0"
   }
 }
