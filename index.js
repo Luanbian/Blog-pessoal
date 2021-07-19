@@ -107,5 +107,5 @@ app.get("/category/:slug", (req,res) => {
 
 //servidor
 app.listen(process.env.PORT || 5500, () => {
-    console.log("O servidor está rodando");
+    console.log("Express server listening on port mode", this.address().port, app.settings.env);
 })
