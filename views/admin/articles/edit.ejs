@@ -5,7 +5,9 @@
     <br>
     <div class="card">
         <div class="card-header">
-            <h2>Edição de artigos</h2>
+            <h2>
+                Aqui você consegue fazer a Edição de artigos
+            </h2>
         </div>
         <div class="card-body">
             <form method="POST" action="/articles/update">
@@ -14,7 +16,7 @@
                 <textarea class="form-control" name="body" id="article"></textarea>
                 <br>
                 <label>
-                    Categoria
+                    Aqui ficam as Categoria
                 </label>
                 <select name="category" class="form-control">
                     <% categories.forEach(category => { %>
@@ -26,7 +28,7 @@
                     <% }) %>
                 </select>
                 <button class="btn btn-success">
-                    Atualizar artigo
+                    Atualize o artigo aqui 
                 </button>
             </form>
         </div>
