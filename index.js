@@ -104,6 +104,6 @@ app.get("/category/:slug", (req,res) => {
 
 //este abaixo é o
 //servidor
-app.listen(process.env.PORT || PORT, () => {
+app.listen(process.env.PORT || 5500, () => {
     console.log("O servidor está rodando");
 })
